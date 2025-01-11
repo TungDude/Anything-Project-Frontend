@@ -1,11 +1,16 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const Footer = () => {
+const NavBar = () => {
   return (
-    <footer>
-      <p>© 2025 TungDude</p>
-    </footer>
+    <nav>
+      <ul>
+        <li><Link to="/">Home</Link></li>
+        <li><Link to="/not-found">Not Found</Link></li>
+        <li><Link to="/random">Random</Link></li>
+      </ul>
+    </nav>
   );
 };
 
-export default Footer;
+export default NavBar;
