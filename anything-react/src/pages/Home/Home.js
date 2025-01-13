@@ -24,7 +24,7 @@ const Home = () => {
         <>
             <div>
                 <h1 className="text-3xl text-lime-500">Create User</h1>
-                <button onClick={HandleCreateUser}>Click</button>
+                <button onClick={HandleCreateUser}>Click HERE</button>
             </div>
         </>
     );
