@@ -26,7 +26,7 @@ class RequestController {
 
     static async CreateUser(data, config = {}) {
         try {
-            const response = await api.post("/api/users", data, config);
+            const response = await api.post("/api/users/create", data, config);
             return response.data;
         } catch (error) {
             console.error('POST Request Error: ', error);
