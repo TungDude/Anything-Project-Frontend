@@ -27,7 +27,7 @@ const Layout = () => {
       </div>
 
       {/* Footer at the bottom */}
-      <footer className="bg-gray-800 text-white p-4 w-full">
+      <footer className="bg-gray-800 text-white p-4 w-full h-min">
         <Footer />
       </footer>
     </div>
