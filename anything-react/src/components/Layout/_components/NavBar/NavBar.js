@@ -1,14 +1,34 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import LinkWithHover from './_components/LinkWithHover/LinkWithHover';
 
 const NavBar = () => {
   return (
     <nav>
       <ul>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/register">Register</Link></li>
-        <li><Link to="/not-found">Not Found</Link></li>
-        <li><Link to="/random">Random</Link></li>
+        <li>
+          <LinkWithHover
+            path="/"
+            label="Home"
+          />
+        </li>
+        <li>
+          <LinkWithHover
+            path="/about-me"
+            label="About Me"
+          />
+        </li>
+        <li>
+          <LinkWithHover
+            path="/not-found"
+            label="Not Found"
+          />
+        </li>
+        <li>
+          <LinkWithHover
+            path="/random"
+            label="Random"
+          />
+        </li>
       </ul>
     </nav>
   );
