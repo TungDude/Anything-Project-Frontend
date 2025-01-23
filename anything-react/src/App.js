@@ -8,6 +8,7 @@ import Layout from './components/Layout/Layout';
 import Home from './pages/Home/Home';
 import NotFound from './pages/NotFound/NotFound';
 import Register from './pages/Register/Register';
+import AboutMe from './pages/AboutMe/AboutMe';
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
+          <Route path="/about-me" element={<AboutMe />} />
           <Route path="/register" element={<Register />} />
           <Route path="/not-found" element={<NotFound />} />
 
