@@ -6,8 +6,22 @@ module.exports = {
     "./src/components/**/*.{js,jsx,ts,tsx}"
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'green': '#50e050', 
+        'cyan': '#46cccc', 
+        'blue': '#3c8cc8', 
+        'lightgray': '#949494', 
+        'black': '#404040', 
+      }
+    },
   },
+  variants: {
+    extend: {
+      borderColor: ['hover'],
+      backgroundColor: ['hover'], 
+    },
+  }, 
   plugins: [],
 }
 
