@@ -1,6 +1,7 @@
 import React from "react";
 import RequestController from "../../controller/RequestController";
 import { useRef } from "react";
+import Button from "../../components/Button/Button";
 
 const Register = () => {
     const username = useRef(null);
@@ -19,7 +20,7 @@ const Register = () => {
     return (
         <>
             <div>
-                <h1 className="text-3xl text-lime-500">Create User</h1>
+                <h1 className="text-3xl text-blue">Create User</h1>
                 <div>
                     <span className="mr-4">Username</span>
                     <input
@@ -34,12 +35,10 @@ const Register = () => {
                         ref={password}
                     />
                 </div>
-                <button
-                    className="border-2 border-black"
+                <Button
+                    label={"Create User"}
                     onClick={handleClickCreateUser}
-                >
-                    Create user
-                </button>
+                />
             </div>
         </>
     );
