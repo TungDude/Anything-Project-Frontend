@@ -1,49 +1,17 @@
-import React from "react";
-import RequestController from "../../controller/RequestController";
-import { useRef, useState } from "react";
+import React, { useRef } from "react";
 import Button from "../../components/Button/Button";
 import TextInput from "../../components/Input/TextInput/TextInput";
 
-const Register = () => {
+const Login = () => {
     const username = useRef(null);
     const password = useRef(null);
-    const [isUsernameError, setIsUsernameError] = useState(false);
-    const [isPasswordError, setIsPasswordError] = useState(false);
-
-    const validateInput = () => {
-        const errors = {
-            username: !username.current.value,
-            password: !password.current.value,
-        };
-
-        setIsUsernameError(errors.username);
-        setIsPasswordError(errors.password);
-
-        return errors.username || errors.password;
-    };
-
-    const handleClickCreateUser = () => {
-        const error = validateInput();
-
-        if (error) {
-            return;
-        }
-
-        RequestController.CreateUser({
-            username: username.current.value,
-            password: password.current.value,
-        })
-            .then(response => {
-                console.log(response);
-            })
-    };
 
     return (
         <>
             <h1
                 className="text-4xl text-blue font-bold"
             >
-                Create User
+                Welcome back
             </h1>
             <div
                 className="flex flex-col"
@@ -52,7 +20,7 @@ const Register = () => {
                     label={"Username"}
                     ref={username}
                 />
-                {isUsernameError && (
+                {/* {isUsernameError && (
                     <>
                         <span
                             className="text-xs text-red"
@@ -60,7 +28,7 @@ const Register = () => {
                             Please enter a username
                         </span>
                     </>
-                )}
+                )} */}
             </div>
             <div
                 className="flex flex-col"
@@ -70,7 +38,7 @@ const Register = () => {
                     type={"password"}
                     ref={password}
                 />
-                {isPasswordError && (
+                {/* {isPasswordError && (
                     <>
                         <span
                             className="text-xs text-red"
@@ -78,16 +46,15 @@ const Register = () => {
                             Please enter a password
                         </span>
                     </>
-                )}
+                )} */}
             </div>
 
             <Button
-                label={"Register"}
-                onClick={handleClickCreateUser}
+                label={"Login"}
                 className={"my-2 w-full"}
             />
         </>
-    );
+    )
 }
 
-export default Register;
+export default Login;

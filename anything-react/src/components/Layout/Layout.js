@@ -16,13 +16,15 @@ const Layout = () => {
       {/* NavBar on the left */}
       <div className="flex flex-grow">
         {/* NavBar (left side) */}
-        <div className="w-32 bg-gray-100 p-4">
+        <div className="w-32 bg-gray-300 p-4">
           <NavBar />
         </div>
 
         {/* Main content area (right side) */}
-        <main className="flex-grow pt-4 pl-8 bg-white">
-          <Outlet />
+        <main className="flex flex-grow pt-4 pl-8 bg-white justify-center">
+          <div className="flex flex-col items-center justify-start gap-2">
+            <Outlet />
+          </div>
         </main>
       </div>
 
