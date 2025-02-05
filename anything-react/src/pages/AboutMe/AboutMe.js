@@ -5,16 +5,14 @@ import { Link } from "react-router-dom";
 const AboutMe = () => {
     return (
         <>
-            <div>
-                {/* <LinkedInBadge /> */}
-                <Link
-                    to="https://www.linkedin.com/in/krittapop-manupornprapa/"
-                    target="_blank"
-                    rel="noopenner noreferrer"
-                >
-                    My LinkedIn
-                </Link>
-            </div>
+            {/* <LinkedInBadge /> */}
+            <Link
+                to="https://www.linkedin.com/in/krittapop-manupornprapa/"
+                target="_blank"
+                rel="noopenner noreferrer"
+            >
+                My LinkedIn
+            </Link>
         </>
     );
 }
