@@ -1,10 +1,14 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import { cn } from '../../../../lib/utils';
 
 const Header = () => {
     const navigate = useNavigate();
+    const [key, setKey] = useState(0);
 
-    function handleClickLogo() {
+    const handleClickLogo = () => {
+        setKey((prev) => prev + 1);
         navigate("/");
     }
 
@@ -12,18 +16,27 @@ const Header = () => {
         <>
             <div className="flex w-full items-center justify-between">
                 {/* Image and Text aligned to the left */}
-                <div 
+                <div
                     className="flex space-x-4 items-center cursor-pointer"
                     onClick={handleClickLogo}
                 >
                     <img
-                        className="h-16 w-auto" // Adjust size of the image as needed
+                        className="h-16 w-auto" // Keep ratio
                         src="/images/main_logo.png"
                         alt="Logo"
                     />
-                    <span className="font-semibold text-xl tracking-[2px] hover:text-gray-400">Anything Project</span>
+                    <span
+                        key={key}
+                        className={cn(
+                            "font-semibold text-xl tracking-[2px] border-r-2 overflow-hidden whitespace-nowrap hover:text-gray-400",
+                            "animate-typing",
+                        )}
+                        // className="font-semibold text-xl tracking-[2px] hover:text-gray-400"
+                    >
+                        Anything Project
+                    </span>
                     <img
-                        className="h-16 w-auto" // Adjust size of the image as needed
+                        className="h-16 w-auto" // Keep ratio
                         src="/images/main_logo.png"
                         alt="Logo"
                     />
