@@ -33,6 +33,16 @@ class RequestController {
             throw error;
         }
     };
+
+    static async LoginUser(data, config = {}) {
+        try {
+            const response = await api.post("/api/users/login", data, config);
+            return response.data;
+        } catch (error) {
+            console.error('POST Request Error', error);
+            // throw error;
+        }
+    }
 };
 
 export default RequestController;
