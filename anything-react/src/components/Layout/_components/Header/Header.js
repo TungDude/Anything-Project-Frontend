@@ -28,15 +28,16 @@ const Header = () => {
                     <span
                         key={key}
                         className={cn(
-                            "font-semibold text-xl tracking-[2px] border-r-2 overflow-hidden whitespace-nowrap hover:text-gray-400",
+                            "font-semibold tracking-[2px] border-r-2 overflow-hidden whitespace-nowrap hover:text-gray-400",
                             "animate-typing",
+                            "text-lg", 
                         )}
                         // className="font-semibold text-xl tracking-[2px] hover:text-gray-400"
                     >
                         Anything Project
                     </span>
                     <img
-                        className="h-16 w-auto" // Keep ratio
+                        className="h-16 w-auto hidden md:block" // Keep ratio
                         src="/images/main_logo.png"
                         alt="Logo"
                     />

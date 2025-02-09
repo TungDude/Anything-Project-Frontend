@@ -1,5 +1,6 @@
 import React from 'react';
 import { Navigate, BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { AuthProvider } from './contexts/AuthContext';
 
 // Import layout
 import Layout from './components/Layout/Layout';
@@ -13,20 +14,22 @@ import AboutMe from './pages/AboutMe/AboutMe';
 
 const App = () => {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="/about-me" element={<AboutMe />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/not-found" element={<NotFound />} />
+    <AuthProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="/about-me" element={<AboutMe />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/not-found" element={<NotFound />} />
 
-          {/* Default navigate to home */}
-          <Route path="*" element={<Navigate to="/not-found" />} />
-        </Route>
-      </Routes>
-    </Router>
+            {/* Default navigate to home */}
+            <Route path="*" element={<Navigate to="/not-found" />} />
+          </Route>
+        </Routes>
+      </Router>
+    </AuthProvider>
   );
 }
 
