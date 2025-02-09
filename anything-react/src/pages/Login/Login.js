@@ -1,9 +1,11 @@
 import React, { useRef } from "react";
 import Button from "../../components/Button/Button";
 import TextInput from "../../components/Input/TextInput/TextInput";
+import { useAuthContext } from "../../contexts/AuthContext";
 import RequestController from "../../controller/RequestController";
 
 const Login = () => {
+    const { isAuthenticated, login } = useAuthContext();
     const username = useRef(null);
     const password = useRef(null);
 
@@ -16,13 +18,6 @@ const Login = () => {
         return errors.username || errors.password;
     };
 
-    const handleTestLoggedIn = () => {
-        RequestController.TestProtected({})
-        .then(response => {
-            console.log(response);
-        })
-    }
-
     const handleClickLogin = () => {
         const error = validateInput();
 
@@ -30,10 +25,14 @@ const Login = () => {
             return;
         }
 
-        RequestController.LoginUser({
-            username: username.current.value,
-            password: password.current.value,
-        })
+        login({
+            username: username.current.value, 
+            password: password.current.value
+        });
+    }
+
+    const handleTestLoggedIn = () => {
+        RequestController.TestProtected({})
             .then(response => {
                 console.log(response);
             })
@@ -87,10 +86,14 @@ const Login = () => {
                 label={"Login"}
                 className={"my-2 w-full"}
             />
-            <Button
-                onClick={handleTestLoggedIn}
-                label={'Test Logged in'}
-            />
+            {isAuthenticated && (
+                <>
+                    <Button
+                        onClick={handleTestLoggedIn}
+                        label={'Test Logged in'}
+                    />
+                </>
+            )}
         </>
     )
 }
