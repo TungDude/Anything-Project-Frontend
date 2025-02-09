@@ -8,7 +8,8 @@ const api = axios.create({
     headers: {
         'Content-Type': 'application/json',  // Default Content-Type
         // 'Authorization': `Bearer ${localStorage.getItem('token')}`  // Optional Authorization token
-    }
+    }, 
+    withCredentials: true,
 });
 
 // Request Controller Class
@@ -24,13 +25,24 @@ class RequestController {
         }
     }
 
+    static async TestProtected() {
+        try {
+            const response = await api.get("/api/protected");
+            return response.data
+        } catch (error) {
+            return JSON.stringify({
+                "Result": "Error", 
+            })
+        }
+    }
+
     static async CreateUser(data, config = {}) {
         try {
             const response = await api.post("/api/users/create", data, config);
             return response.data;
         } catch (error) {
             console.error('POST Request Error: ', error);
-            throw error;
+            // throw error;
         }
     };
 
